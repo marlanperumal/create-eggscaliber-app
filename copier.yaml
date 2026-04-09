@@ -1,0 +1,84 @@
+# copier.yaml
+_templates_suffix: ""
+_subdirectory: template
+
+# ── Project identity ─────────────────────────────────────────────────────────
+
+project_name:
+  type: str
+  help: "Project name (lowercase, hyphens OK — used in package names and DB names)"
+  placeholder: my-app
+  validator: "{% if not (project_name | regex_search('^[a-z][a-z0-9-]*$')) %}Must be lowercase letters, numbers, and hyphens only{% endif %}"
+
+project_description:
+  type: str
+  help: "One-line description of your project"
+  placeholder: A full-stack web application
+
+# ── Development integrations ─────────────────────────────────────────────────
+
+use_clerk:
+  type: bool
+  help: "Include Clerk for authentication?"
+  default: true
+
+use_sentry:
+  type: bool
+  help: "Include Sentry for error monitoring? (covers both API and web)"
+  default: true
+
+use_posthog:
+  type: bool
+  help: "Include PostHog for analytics?"
+  default: true
+
+use_chromatic:
+  type: bool
+  help: "Include Chromatic for Storybook visual regression testing?"
+  default: false
+
+use_marimo:
+  type: bool
+  help: "Include Marimo notebooks?"
+  default: false
+
+# ── Deployment integrations ──────────────────────────────────────────────────
+
+use_vercel:
+  type: bool
+  help: "Include Vercel config for web deployment? (uses Vercel GitHub integration)"
+  default: false
+
+use_render:
+  type: bool
+  help: "Include Render config for API deployment? (uses Render GitHub integration)"
+  default: false
+
+use_neon:
+  type: bool
+  help: "Include Neon managed Postgres for production?"
+  default: false
+  when: "{{ use_render }}"
+
+# ── File exclusions ──────────────────────────────────────────────────────────
+
+_exclude:
+  # Sentry — web config files (instrumentation files handled inline)
+  - "{% if not use_sentry %}apps/web/sentry.client.config.ts{% endif %}"
+  - "{% if not use_sentry %}apps/web/sentry.server.config.ts{% endif %}"
+  - "{% if not use_sentry %}apps/web/sentry.edge.config.ts{% endif %}"
+  - "{% if not use_sentry %}apps/web/src/instrumentation.ts{% endif %}"
+  - "{% if not use_sentry %}apps/web/src/instrumentation-client.ts{% endif %}"
+  - "{% if not use_sentry %}apps/web/src/app/sentry-example-page{% endif %}"
+  - "{% if not use_sentry %}apps/api/src/routes/sentry.py{% endif %}"
+  # PostHog — proxy middleware
+  - "{% if not use_posthog %}apps/web/src/proxy.ts{% endif %}"
+  # Clerk — Next.js middleware
+  - "{% if not use_clerk %}apps/web/src/middleware.ts{% endif %}"
+  # Marimo — notebooks directory
+  - "{% if not use_marimo %}notebooks{% endif %}"
+  # Deployment — platform config files
+  - "{% if not use_vercel %}vercel.json{% endif %}"
+  - "{% if not use_render %}render.yaml{% endif %}"
+  # deploy.yml excluded if no deployment integration selected
+  - "{% if not use_vercel and not use_render and not use_chromatic %}.github/workflows/deploy.yml{% endif %}"
