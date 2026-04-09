@@ -75,8 +75,10 @@ jobs:
           just audit
           just test
 
+{% if use_chromatic %}
       - name: Deploy to Chromatic
         run: cd apps/web && pnpm chromatic --project-token={% raw %}${{ secrets.CHROMATIC_PROJECT_TOKEN }}{% endraw %}
+{% endif %}
 
       # Vercel deploys automatically via Vercel GitHub integration — no step needed here.
       # Render deploys automatically via Render GitHub integration — no step needed here.

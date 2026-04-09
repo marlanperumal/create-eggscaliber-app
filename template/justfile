@@ -42,9 +42,11 @@ build:
 storybook:
     cd apps/web && pnpm storybook
 
+{% if use_marimo %}
 # Marimo notebook server
 notebook:
     uv run --no-env-file marimo edit notebooks/
+{% endif %}
 
 # ===== Database =====
 
