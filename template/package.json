@@ -1,5 +1,5 @@
 {
-  "name": "eggscaliber-lite",
+  "name": "{{ project_name }}",
   "private": true,
   "scripts": {
     "postinstall": "husky"

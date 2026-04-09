@@ -8,10 +8,10 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    database_url: str = "postgresql://postgres:postgres@localhost:5432/eggscaliber_dev"
-    test_database_url: str = "postgresql://postgres:postgres@localhost:5432/eggscaliber_test"
+    database_url: str = "postgresql://postgres:postgres@localhost:5432/{{ project_name | replace('-', '_') }}_dev"
+    test_database_url: str = "postgresql://postgres:postgres@localhost:5432/{{ project_name | replace('-', '_') }}_test"
     migrations_test_database_url: str = (
-        "postgresql://postgres:postgres@localhost:5432/eggscaliber_migrations_test"
+        "postgresql://postgres:postgres@localhost:5432/{{ project_name | replace('-', '_') }}_migrations_test"
     )
 
     auth_mode: str = "dev"

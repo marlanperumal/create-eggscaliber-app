@@ -52,8 +52,7 @@ just audit          # pip-audit + pnpm audit
 Agent skills live in `.claude/skills/`. After running `uv sync`, re-sync the FastAPI bundled skill:
 
 ```bash
-cp -r .venv/lib/python3.13/site-packages/fastapi/.agents/skills/fastapi .claude/skills/fastapi
-```
+cp -r .venv/lib/python3.13/site-packages/fastapi/.agents/skills/fastapi .claude/skills/fastapi```
 
 ## Adding New Libraries
 

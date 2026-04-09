@@ -7,9 +7,9 @@ export default withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
-  org: "stunted-chicken-labs",
+  org: "{{ project_name }}",
 
-  project: "eggscaliber-web",
+  project: "{{ project_name }}-web",
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,

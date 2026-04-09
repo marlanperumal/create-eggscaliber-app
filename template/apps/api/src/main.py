@@ -11,7 +11,7 @@ if settings.sentry_dsn:
         traces_sample_rate=0.1,
     )
 
-app = FastAPI(title="Eggscaliber-Lite API", version="0.1.0")
+app = FastAPI(title="{{ project_name }} API", version="0.1.0")
 
 app.include_router(health.router, prefix="/api/v1")
 app.include_router(sentry.router, prefix="/api/v1")

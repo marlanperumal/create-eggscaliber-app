@@ -6,8 +6,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Eggscaliber Lite",
-  description: "Data analysis platform",
+  title: "{{ project_name }}",
+  description: "{{ project_description }}",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
