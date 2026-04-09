@@ -101,4 +101,3 @@ _tasks:
       use_neon={{ use_neon | lower }}
       SETUP_MD_DST={{ _copier_conf.dst_path }}
       uv --directory {{ _copier_conf.src_path }} run python3 {{ _copier_conf.src_path }}/hooks/post_copy.py
-    when: "true"

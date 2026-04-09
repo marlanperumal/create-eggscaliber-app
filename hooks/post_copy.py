@@ -123,10 +123,11 @@ just notebook
 """)
 
     if answers["use_neon"]:
-        deploy_sections.append("""### Neon (managed Postgres)
+        db_target = "Render" if answers["use_render"] else "your hosting platform"
+        deploy_sections.append(f"""### Neon (managed Postgres)
 
 1. Create a project at [neon.tech](https://neon.tech).
-2. Replace `DATABASE_URL` in Render with the Neon connection string.
+2. Replace `DATABASE_URL` in {db_target} with the Neon connection string.
 3. Run migrations against production before first deploy:
    ```bash
    DATABASE_URL=<neon-connection-string> just db-migrate
@@ -193,15 +194,19 @@ def print_summary(answers: dict) -> None:
         config_needed.append(
             "-> PostHog  NEXT_PUBLIC_POSTHOG_KEY  (.env.local)"
         )
+    if answers["use_chromatic"] or answers["use_vercel"] or answers["use_render"]:
+        config_needed.append(
+            "-> GitHub Actions secrets needed — see SETUP.md § GitHub Actions Secrets Checklist"
+        )
 
-    print(f"\nProject scaffolded\n")
+    print("\nProject scaffolded\n")
 
     if selected:
         print(f"  Integrations: {', '.join(selected)}\n")
 
-    print(f"  Next steps:")
+    print("  Next steps:")
     print(f"    cd {project_name}")
-    print(f"    just setup\n")
+    print("    just setup\n")
 
     if config_needed:
         print("  Integrations needing config before `just setup`:")
