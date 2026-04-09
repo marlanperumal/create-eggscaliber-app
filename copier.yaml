@@ -84,3 +84,21 @@ _exclude:
   - "{% if not use_vercel and not use_render and not use_chromatic %}.github/workflows/deploy.yml{% endif %}"
   # Internal planning/design documents — not for scaffolded projects
   - "docs/superpowers"
+
+# ── Post-copy hook ───────────────────────────────────────────────────────────
+
+_tasks:
+  - command: >-
+      env
+      project_name={{ project_name }}
+      use_clerk={{ use_clerk | lower }}
+      use_sentry={{ use_sentry | lower }}
+      use_posthog={{ use_posthog | lower }}
+      use_chromatic={{ use_chromatic | lower }}
+      use_marimo={{ use_marimo | lower }}
+      use_vercel={{ use_vercel | lower }}
+      use_render={{ use_render | lower }}
+      use_neon={{ use_neon | lower }}
+      SETUP_MD_DST={{ _copier_conf.dst_path }}
+      uv --directory {{ _copier_conf.src_path }} run python3 {{ _copier_conf.src_path }}/hooks/post_copy.py
+    when: "true"
