@@ -1,3 +1,4 @@
+{% raw %}
 # RSC Boundaries
 
 Detect and prevent invalid patterns when crossing Server/Client component boundaries.
@@ -157,3 +158,4 @@ export function ClientForm({ onSubmit }: { onSubmit: (data: FormData) => Promise
 | Pass server action to client | Yes | - |
 | Pass `string/number/boolean` | Yes | - |
 | Pass plain object/array | Yes | - |
+{% endraw %}

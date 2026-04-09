@@ -1,3 +1,4 @@
+{% raw %}
 # Metadata
 
 Add SEO metadata to Next.js pages using the Metadata API.
@@ -299,3 +300,4 @@ export default async function sitemap({
 ```
 
 Generates `/sitemap/0.xml`, `/sitemap/1.xml`, etc.
+{% endraw %}

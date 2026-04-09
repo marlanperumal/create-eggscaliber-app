@@ -1,3 +1,4 @@
+{% raw %}
 # PostHog — Next.js App Router Integration
 
 Use `@posthog/next` for Next.js App Router. This project also has `@posthog/nextjs-config` for sourcemap uploads in `next.config.ts`.
@@ -106,3 +107,4 @@ posthog.capture('analysis_run', { analysis_type: 'cross_tab', dataset_id: id })
 - The SDK initialises during render (not in `useEffect`) — hooks are available immediately in children
 - Consent opt-out is respected automatically at all layers (middleware, provider, server utils)
 - Do not import `posthog-js` directly in Server Components — use `getPostHog()` instead
+{% endraw %}

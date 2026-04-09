@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite"
+{% raw %}import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 
 const meta = {
   title: "Design System/Tokens",
@@ -60,3 +60,4 @@ export const Typography: StoryObj = {
     </div>
   ),
 }
+{% endraw %}

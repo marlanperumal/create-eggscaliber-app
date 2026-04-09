@@ -1,3 +1,4 @@
+{% raw %}
 ---
 title: Hoist Static I/O to Module Level
 impact: HIGH
@@ -147,3 +148,4 @@ When not to use this pattern:
 With Vercel's [Fluid Compute](https://vercel.com/docs/fluid-compute), module-level caching is especially effective because multiple concurrent requests share the same function instance. The static assets stay loaded in memory across requests without cold start penalties.
 
 In traditional serverless, each cold start re-executes module-level code, but subsequent warm invocations reuse the loaded assets until the instance is recycled.
+{% endraw %}

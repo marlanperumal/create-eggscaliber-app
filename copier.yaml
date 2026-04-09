@@ -82,3 +82,5 @@ _exclude:
   - "{% if not use_render %}render.yaml{% endif %}"
   # deploy.yml excluded if no deployment integration selected
   - "{% if not use_vercel and not use_render and not use_chromatic %}.github/workflows/deploy.yml{% endif %}"
+  # Internal planning/design documents — not for scaffolded projects
+  - "docs/superpowers"

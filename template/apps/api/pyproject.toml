@@ -7,8 +7,13 @@ dependencies = [
     "sqlmodel>=0.0.21",
     "alembic>=1.13.0",
     "pydantic-settings>=2.0.0",
-    "sentry-sdk[fastapi]>=2.0.0",
     "psycopg2-binary>=2.9.0",
+{% if use_sentry %}
+    "sentry-sdk[fastapi]>=2.0.0",
+{% endif %}
+{% if use_marimo %}
+    "marimo>=0.0.1",
+{% endif %}
 ]
 
 [dependency-groups]

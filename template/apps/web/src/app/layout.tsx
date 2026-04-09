@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <PostHogProvider
-          clientOptions={{ api_host: "/ingest", debug: process.env.NODE_ENV === "development" }}
+          clientOptions={{ '{{' }} api_host: "/ingest", debug: process.env.NODE_ENV === "development" }}
           bootstrapFlags
         >
           <PostHogPageView />

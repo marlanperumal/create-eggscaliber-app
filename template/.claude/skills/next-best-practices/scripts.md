@@ -1,3 +1,4 @@
+{% raw %}
 # Scripts
 
 Loading third-party scripts in Next.js.
@@ -139,3 +140,4 @@ import { GoogleMapsEmbed } from '@next/third-parties/google'
 | `<Script>` inside `<Head>` | Wrong placement | Move outside Head |
 | Inline GA/GTM scripts | No optimization | Use `@next/third-parties` |
 | `strategy="beforeInteractive"` outside layout | Won't work | Only use in root layout |
+{% endraw %}

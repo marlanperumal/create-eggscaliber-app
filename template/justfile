@@ -73,7 +73,7 @@ db-migrate:
 
 # Generate a new migration from model changes
 db-migration name:
-    cd apps/api && uv run --no-env-file alembic revision --autogenerate -m "{{name}}"
+    cd apps/api && uv run --no-env-file alembic revision --autogenerate -m "{{ '{{name}}' }}"
 
 # ===== Shared Types =====
 

@@ -1,3 +1,4 @@
+{% raw %}
 # Error Monitoring — Sentry Next.js SDK
 
 > Minimum SDK: `@sentry/nextjs` ≥8.0.0  
@@ -957,3 +958,4 @@ Sentry.init({ denyUrls: [/regex/] })
 | Turbopack source map issues | Turbopack source map upload support is experimental; fall back to webpack for production builds if maps are missing |
 | Events from wrong DSN in hybrid app | All three runtimes (client, server, edge) use the same DSN; verify each init file has identical DSN value |
 | `captureUnderscoreErrorException` not awaited | In Pages Router `_error.tsx`, always `await` it — serverless functions may exit before Sentry flushes otherwise |
+{% endraw %}

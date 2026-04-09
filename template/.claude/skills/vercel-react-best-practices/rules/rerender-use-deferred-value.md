@@ -1,3 +1,4 @@
+{% raw %}
 ---
 title: Use useDeferredValue for Expensive Derived Renders
 impact: MEDIUM
@@ -57,3 +58,4 @@ function Search({ items }: { items: Item[] }) {
 **Note:** Wrap the expensive computation in `useMemo` with the deferred value as a dependency, otherwise it still runs on every render.
 
 Reference: [React useDeferredValue](https://react.dev/reference/react/useDeferredValue)
+{% endraw %}

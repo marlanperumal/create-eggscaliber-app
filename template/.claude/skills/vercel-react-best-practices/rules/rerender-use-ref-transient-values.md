@@ -1,3 +1,4 @@
+{% raw %}
 ---
 title: Use useRef for Transient Values
 impact: MEDIUM
@@ -71,3 +72,4 @@ function Tracker() {
   )
 }
 ```
+{% endraw %}

@@ -1,3 +1,4 @@
+{% raw %}
 # Image Optimization
 
 Use `next/image` for automatic image optimization.
@@ -171,3 +172,4 @@ const cloudinaryLoader = ({ src, width, quality }) => {
 
 <Image loader={cloudinaryLoader} src="sample.jpg" alt="Sample" width={800} height={400} />
 ```
+{% endraw %}

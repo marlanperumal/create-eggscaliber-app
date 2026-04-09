@@ -1,3 +1,4 @@
+{% raw %}
 # Error Monitoring — Sentry Python SDK
 
 > Minimum SDK: `sentry-sdk` 1.x+ (2.x for `new_scope()`, `get_isolation_scope()`)
@@ -284,3 +285,4 @@ def set_sentry_user():
 | `capture_exception()` is a no-op | Must be called inside an `except` block or pass the exception explicitly |
 | Breadcrumbs missing | Check `max_breadcrumbs` setting and `before_breadcrumb` hook |
 | `push_scope()` / `configure_scope()` errors | Migrate to `new_scope()` / `get_isolation_scope()` (SDK 2.x) |
+{% endraw %}
