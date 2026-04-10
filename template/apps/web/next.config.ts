@@ -11,12 +11,7 @@ export default withSentryConfig(nextConfig, {
   project: "{{ project_name }}-web",
   silent: !process.env.CI,
   widenClientFileUpload: true,
-  webpack: {
-    automaticVercelMonitors: true,
-    treeshake: {
-      removeDebugLogging: true,
-    },
-  },
+  automaticVercelMonitors: true,
 })
 {% else %}
 export default nextConfig

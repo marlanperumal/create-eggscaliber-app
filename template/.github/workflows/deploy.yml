@@ -59,6 +59,7 @@ jobs:
           PGPASSWORD=postgres psql -h localhost -U postgres -c "CREATE DATABASE {{ project_name | replace('-', '_') }}_dev;"
           PGPASSWORD=postgres psql -h localhost -U postgres -c "CREATE DATABASE {{ project_name | replace('-', '_') }}_test;"
           PGPASSWORD=postgres psql -h localhost -U postgres -c "CREATE DATABASE {{ project_name | replace('-', '_') }}_migrations_test;"
+          PGPASSWORD=postgres psql -h localhost -U postgres -d {{ project_name | replace('-', '_') }}_dev -c "CREATE EXTENSION IF NOT EXISTS vector;"
           PGPASSWORD=postgres psql -h localhost -U postgres -d {{ project_name | replace('-', '_') }}_test -c "CREATE EXTENSION IF NOT EXISTS vector;"
           PGPASSWORD=postgres psql -h localhost -U postgres -d {{ project_name | replace('-', '_') }}_migrations_test -c "CREATE EXTENSION IF NOT EXISTS vector;"
 

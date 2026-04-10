@@ -103,6 +103,14 @@ def test_setup_md_uses_project_name_in_heading():
     assert "# my-cool-app Setup Guide" in content
 
 
+def test_setup_md_neon_uses_hosting_platform_when_render_false():
+    content = generate_setup_md(_answers(use_neon=True))
+    assert "### Neon" in content
+    neon_section = content.split("### Neon")[1]
+    assert "your hosting platform" in neon_section
+    assert "Render" not in neon_section
+
+
 # ── print_summary ─────────────────────────────────────────────────────────────
 
 def test_print_summary_shows_selected_integrations(capsys):
