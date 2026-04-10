@@ -1,6 +1,6 @@
+.env
+.env.local
 __pycache__/
 *.pyc
 .venv/
 test-output/
-dist/
-*.egg-info/
