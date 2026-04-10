@@ -16,7 +16,7 @@ test:
         --data use_vercel=true \
         --data use_render=true \
         --data use_neon=true \
-        --defaults --overwrite
+        --defaults --overwrite --trust
     @echo "✔ Template scaffolded to /tmp/cea-test-output"
 
 # Scaffold interactively to ./test-output for manual inspection

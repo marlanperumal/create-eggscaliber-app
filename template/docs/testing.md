@@ -2,7 +2,7 @@
 
 ## Core Principles
 
-**Integration-first.** Tests run against the real `eggscaliber_test` Postgres database — same container, different DB name. Never use SQLite. No dialect mismatch, full pgvector support.
+**Integration-first.** Tests run against the real `{{ project_name | replace('-', '_') }}_test` Postgres database — same container, different DB name. Never use SQLite. No dialect mismatch, full pgvector support.
 
 **Test real behaviour.** Tests should catch real bugs. Do not write tests that only assert values you set up, or that verify internal functions were called.
 
@@ -38,7 +38,7 @@ Three tests in `tests/test_migrations.py` run as part of every test suite:
 2. `test_no_pending_model_changes` — all model changes have a migration
 3. `test_migration_upgrade_downgrade_cycle` — full cycle on dedicated migrations DB
 
-These run in CI before any other tests (migrations are applied to `eggscaliber_test` first).
+These run in CI before any other tests (migrations are applied to `{{ project_name | replace('-', '_') }}_test` first).
 
 ## Naming Conventions
 

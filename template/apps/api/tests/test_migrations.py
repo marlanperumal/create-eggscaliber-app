@@ -18,7 +18,7 @@ def alembic_config():
 def migrations_engine():
     """Dedicated engine for the upgrade/downgrade cycle test.
 
-    Uses eggscaliber_migrations_test so the cycle does not disrupt the
+    Uses {{ project_name | replace('-', '_') }}_migrations_test so the cycle does not disrupt the
     main test DB that other tests rely on being at head.
     """
     eng = create_engine(settings.migrations_test_database_url)
@@ -40,7 +40,7 @@ def test_single_migration_head(alembic_config):
 def test_no_pending_model_changes(alembic_config):
     """All SQLModel model changes must have a corresponding Alembic migration.
 
-    Assumes the test DB (eggscaliber_test) has already been upgraded to head
+    Assumes the test DB ({{ project_name | replace('-', '_') }}_test) has already been upgraded to head
     before the test suite runs. CI does this via 'just db-migrate' before pytest.
     """
     try:

@@ -1,8 +1,8 @@
-\c eggscaliber_dev
+\c {{ project_name | replace('-', '_') }}_dev
 CREATE EXTENSION IF NOT EXISTS vector;
 
-\c eggscaliber_test
+\c {{ project_name | replace('-', '_') }}_test
 CREATE EXTENSION IF NOT EXISTS vector;
 
-\c eggscaliber_migrations_test
+\c {{ project_name | replace('-', '_') }}_migrations_test
 CREATE EXTENSION IF NOT EXISTS vector;

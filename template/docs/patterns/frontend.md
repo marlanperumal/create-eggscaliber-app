@@ -6,7 +6,7 @@ Use `openapi-fetch` with the generated types from `packages/shared/api.d.ts`:
 
 ```typescript
 import createClient from "openapi-fetch"
-import type { paths } from "@eggscaliber/shared"
+import type { paths } from "@{{ project_name }}/shared"
 
 const api = createClient<paths>({ baseUrl: process.env.NEXT_PUBLIC_API_URL })
 

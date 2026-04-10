@@ -1,3 +1,3 @@
-CREATE DATABASE eggscaliber_dev;
-CREATE DATABASE eggscaliber_test;
-CREATE DATABASE eggscaliber_migrations_test;
+CREATE DATABASE {{ project_name | replace('-', '_') }}_dev;
+CREATE DATABASE {{ project_name | replace('-', '_') }}_test;
+CREATE DATABASE {{ project_name | replace('-', '_') }}_migrations_test;
