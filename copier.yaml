@@ -99,5 +99,5 @@ _tasks:
       use_vercel={{ use_vercel | lower }}
       use_render={{ use_render | lower }}
       use_neon={{ use_neon | lower }}
-      SETUP_MD_DST={{ _copier_conf.dst_path }}
-      uv --directory {{ _copier_conf.src_path }} run --no-env-file python3 {{ _copier_conf.src_path }}/hooks/post_copy.py
+      SETUP_MD_DST=.
+      uv run --no-project --no-env-file python3 {{ _copier_conf.src_path }}/hooks/post_copy.py
