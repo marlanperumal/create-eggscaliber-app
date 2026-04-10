@@ -220,6 +220,6 @@ def print_summary(answers: dict) -> None:
 if __name__ == "__main__":
     answers = get_answers()
     setup_content = generate_setup_md(answers)
-    dst = Path(os.environ.get("SETUP_MD_DST", "."))
+    dst = Path(os.environ.get("SETUP_MD_DST", ".")).resolve()
     (dst / "SETUP.md").write_text(setup_content)
     print_summary(answers)
